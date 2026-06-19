@@ -6,3 +6,9 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Claude Code（ローカル設定・個人の絶対パスを含む）
+.claude/
+
+# VS Code ワークスペース（個人の作業環境・絶対パスを含む）
+*.code-workspace
