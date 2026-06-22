@@ -251,7 +251,8 @@ def generate():
         receipts.append({
             "レシート番号": rid, "支店": store, "性別": gender, "年代": nendai,
             "曜日": wd, "日付": d.strftime("%Y/%m/%d"), "時刻": jikoku,
-            "時間帯": time_band, "金額": total, "購入商品": " ".join(products),
+            "時間帯": time_band, "金額": total,
+            "購入商品数": len(products), "購入商品": " ".join(products),
         })
 
         for order, p in enumerate(products, start=1):
@@ -313,7 +314,7 @@ def build_summary(item_rows):
 def main():
     receipts, item_rows = generate()
 
-    receipt_fields = ["レシート番号", "支店", "性別", "年代", "曜日", "日付", "時刻", "時間帯", "金額", "購入商品"]
+    receipt_fields = ["レシート番号", "支店", "性別", "年代", "曜日", "日付", "時刻", "時間帯", "金額", "購入商品数", "購入商品"]
     item_fields = list(item_rows[0].keys())
     summary = build_summary(item_rows)
     summary_fields = ["支店", "時間帯", "平日土日", "カテゴリ", "商品点数", "合計金額"]
